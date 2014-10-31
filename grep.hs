@@ -1,3 +1,5 @@
+import System.Environment
+
 grep :: [Char] -> [[Char]] -> [[Char]]
 grep [] _ = []
 grep _ [] = []
@@ -15,3 +17,8 @@ eql_pairs ps = length [p | p <- ps, eql_pair p] == length ps
 
 eql_pair :: (Char,Char) -> Bool
 eql_pair (a,b) = a == b
+
+main = do
+  [p, f] <- getArgs
+  s      <- readFile f
+  putStr (unlines (grep p (lines s)))
