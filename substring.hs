@@ -5,8 +5,8 @@ substring xs (y:ys) = if length xs <= length ([y] ++ ys) && eql_pairs (zip xs ([
                       then True
                       else substring xs ys
 
-eql_pairs :: Eq a => [(a,a)] -> Bool
+eql_pairs :: [(Char,Char)] -> Bool
 eql_pairs xs = length [x | x <- xs, eql_pair x] == length xs
 
-eql_pair :: Eq a => (a,a) -> Bool
+eql_pair :: (Char,Char) -> Bool
 eql_pair (a,b) = a == b
