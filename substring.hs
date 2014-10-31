@@ -1,3 +1,8 @@
+grep :: [Char] -> [[Char]] -> [[Char]]
+grep [] _ = []
+grep _ [] = []
+grep s xs = [x | x <- xs, substring s x]
+
 substring :: [Char] -> [Char] -> Bool
 substring [] _ = False
 substring _ [] = False
